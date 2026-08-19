@@ -1,0 +1,5 @@
+// Analyst question: What are the newest Azure control-plane events?
+// Status: editor syntax validated; awaiting first confirmed AzureActivity rows.
+
+AzureActivity
+| top 20 by TimeGenerated desc
