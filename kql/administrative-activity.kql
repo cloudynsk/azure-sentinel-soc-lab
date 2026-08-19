@@ -1,0 +1,7 @@
+// Analyst question: What administrative control-plane changes have occurred?
+// Status: template prepared for validation once AzureActivity ingestion is confirmed.
+
+AzureActivity
+| where CategoryValue == "Administrative"
+| project TimeGenerated, ActivityStatusValue, OperationNameValue, Caller, ResourceGroup, ResourceProviderValue, ResourceId
+| sort by TimeGenerated desc
