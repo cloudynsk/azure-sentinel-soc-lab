@@ -1,0 +1,7 @@
+// Analyst question: Which Azure control-plane operations failed?
+// Status: template prepared for validation once AzureActivity ingestion is confirmed.
+
+AzureActivity
+| where ActivityStatusValue in~ ("Failed", "Failure")
+| project TimeGenerated, OperationNameValue, Caller, ResourceGroup, ResourceProviderValue, ResourceId, CorrelationId
+| sort by TimeGenerated desc
