@@ -1,0 +1,7 @@
+// Analyst question: What control-plane activity affected the SOC lab resource group?
+// Status: template prepared for validation once AzureActivity ingestion is confirmed.
+
+AzureActivity
+| where ResourceGroup =~ "rg-soc-lab"
+| project TimeGenerated, ActivityStatusValue, OperationNameValue, Caller, ResourceProviderValue, ResourceId, CorrelationId
+| sort by TimeGenerated desc
