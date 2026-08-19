@@ -1,0 +1,8 @@
+// Analyst question: Which recent control-plane write operations changed lab resources?
+// Status: template prepared for validation once AzureActivity ingestion is confirmed.
+
+AzureActivity
+| where ResourceGroup =~ "rg-soc-lab"
+| where OperationNameValue contains "write"
+| project TimeGenerated, ActivityStatusValue, OperationNameValue, Caller, ResourceProviderValue, ResourceId, CorrelationId
+| sort by TimeGenerated desc
