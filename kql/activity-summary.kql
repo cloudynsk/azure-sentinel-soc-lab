@@ -1,0 +1,6 @@
+// Analyst question: Which Azure operations are occurring most often?
+// Status: template prepared for validation once AzureActivity ingestion is confirmed.
+
+AzureActivity
+| summarize Events=count() by OperationNameValue, ActivityStatusValue
+| sort by Events desc
