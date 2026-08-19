@@ -45,6 +45,16 @@ rg-soc-lab (Israel Central)
 
 See [docs/architecture.md](docs/architecture.md) for details.
 
+## Repository map
+
+- [`docs/setup.md`](docs/setup.md) — configuration performed during the live build.
+- [`docs/current-status.md`](docs/current-status.md) — configured / observed / validated boundary.
+- [`docs/troubleshooting.md`](docs/troubleshooting.md) — Entra, Defender, and ingestion troubleshooting.
+- [`docs/kql-cheatsheet.md`](docs/kql-cheatsheet.md) — SPL-to-KQL mapping for investigation workflows.
+- [`docs/investigation-template.md`](docs/investigation-template.md) — analyst evidence template for the first real case.
+- [`kql/`](kql/) — reusable investigation queries.
+- [`detections/`](detections/) — detection-validation criteria and, later, validated analytics content.
+
 ## What has been implemented
 
 - Created an Azure subscription and Microsoft Entra tenant for the lab.
@@ -81,6 +91,13 @@ This build included several real identity and tenant-routing failures rather tha
 - Sentinel provisioning was separately evidenced in Azure through the `SecurityInsights` solution resource, so the Defender portal authentication problem is tracked as an access/provisioning issue rather than treated as proof that Sentinel failed to deploy.
 
 See [docs/troubleshooting.md](docs/troubleshooting.md).
+
+## Open validation work
+
+- [Issue #1: Confirm `AzureActivity` ingestion and document first investigation](../../issues/1)
+- [Issue #2: Resolve or bound Defender portal tenant authentication](../../issues/2)
+
+These are deliberately open. The repository should show what is unfinished rather than converting waiting time into fictional success.
 
 ## Evidence standard
 
