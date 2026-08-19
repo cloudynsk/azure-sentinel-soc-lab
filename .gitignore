@@ -1,0 +1,33 @@
+# Secrets / credentials
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+*password*
+*credential*
+*secret*
+*token*
+
+# Azure local/auth state
+.azure/
+**/.azure/
+
+# Raw evidence that may contain identifiers
+evidence/private/
+screenshots/raw/
+exports/raw/
+
+# Logs / temporary files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
