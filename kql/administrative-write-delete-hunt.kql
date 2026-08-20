@@ -1,0 +1,18 @@
+AzureActivity
+| where TimeGenerated > ago(24h)
+| where OperationNameValue has_any ("/WRITE", "/DELETE")
+| summarize arg_max(TimeGenerated, *) by CorrelationId, OperationNameValue
+| extend Action = case(
+    OperationNameValue has "/DELETE", "Delete",
+    OperationNameValue has "/WRITE", "Write",
+    "Other"
+)
+| project
+    TimeGenerated,
+    Action,
+    OperationNameValue,
+    ActivityStatusValue,
+    ResourceGroup,
+    Caller,
+    CorrelationId
+| order by TimeGenerated desc
