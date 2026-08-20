@@ -1,0 +1,12 @@
+AzureActivity
+| where TimeGenerated > ago(5m)
+| where OperationNameValue =~ "MICROSOFT.RESOURCES/TAGS/WRITE"
+| where ActivityStatusValue =~ "Success"
+| where ResourceGroup =~ "RG-SOC-LAB"
+| project
+    TimeGenerated,
+    OperationNameValue,
+    ActivityStatusValue,
+    ResourceGroup,
+    Caller,
+    CorrelationId
